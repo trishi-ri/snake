@@ -24,14 +24,14 @@ namespace Snake
         {
             Point tail = pList.First();
             pList.Remove(tail);
-            Point head = GetNextPosition();
+            Point head = GetNextPoint();
             pList.Add(head);
 
             tail.Clear();
             head.Draw();
         }
 
-        private Point GetNextPosition()
+        private Point GetNextPoint()
         {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
@@ -50,6 +50,19 @@ namespace Snake
                 direction = Direction.UP;
             else if (key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
+        }
+
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
