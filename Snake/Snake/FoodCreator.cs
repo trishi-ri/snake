@@ -22,7 +22,11 @@ namespace Snake
         {
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);
-            return new Point(x, y, sym);
+            Point food = new Point(x, y, sym);
+            Console.ForegroundColor = ConsoleColor.Red;
+            food.Draw();
+            Console.ForegroundColor = ConsoleColor.White;
+            return food;
         }
     }
 }
