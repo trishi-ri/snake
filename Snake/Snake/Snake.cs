@@ -28,7 +28,7 @@ namespace Snake
             pList.Add(head);
 
             tail.Clear();
-            head.Draw();
+            Draw(head);
         }
 
         private Point GetNextPoint()
@@ -57,12 +57,27 @@ namespace Snake
             Point head = GetNextPoint();
             if (head.IsHit(food))
             {
+                Draw(food);
                 food.sym = head.sym;
                 pList.Add(food);
                 return true;
             }
             else
                 return false;
+        }
+
+        private void Draw(Point ps)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            ps.Draw();
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            base.Draw();
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
