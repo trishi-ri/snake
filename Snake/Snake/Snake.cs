@@ -63,6 +63,11 @@ namespace Snake
                 direction = Direction.DOWN;
         }
 
+        internal int Length()
+        {
+            return pList.Count;
+        }
+
         public bool Eat(Point food)
         {
             Point head = GetNextPoint();

@@ -67,6 +67,5 @@ namespace Snake
         {
             return x + ", " + y + ", " + sym;
         }
-
     }
 }
