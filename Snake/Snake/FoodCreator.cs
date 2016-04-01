@@ -4,7 +4,6 @@ namespace Snake
 {
     class FoodCreator
     {
-
         int mapWidth;
         int mapHeight;
         char sym;
@@ -22,11 +21,14 @@ namespace Snake
         {
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);
-            Point food = new Point(x, y, sym);
+            return new Point(x, y, sym);
+        }
+
+        public void Draw(Point food)
+        {
             Console.ForegroundColor = ConsoleColor.Red;
             food.Draw();
             Console.ForegroundColor = ConsoleColor.White;
-            return food;
         }
     }
 }
